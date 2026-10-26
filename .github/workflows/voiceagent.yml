@@ -1,0 +1,18 @@
+# Every push deploys to test. Give it a test key (va_test_…): it can never change production.
+# Production gets a deployment that passed test: `voiceagent promote <version>` with a live key,
+# or Promote in the dashboard.
+name: Deploy the voice agent
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - run: npx voiceagent deploy
+        env:
+          VOICEAGENT_KEY: ${{ secrets.VOICEAGENT_KEY }}
+          VOICEAGENT_API: ${{ vars.VOICEAGENT_API }}

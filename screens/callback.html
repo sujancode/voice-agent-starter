@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <!-- A screen: shown on the caller's display by the tool that names it (request_callback), from
+       the moment it is called until it is done. It updates in place; no script of its own needed. -->
+  <style>
+    body { font: 15px/1.4 system-ui, sans-serif; margin: 0; padding: 16px; color: #111; }
+    h1 { font-size: 16px; margin: 0 0 12px; }
+    label { display: block; font-size: 12px; color: #555; margin-top: 10px; }
+    input { width: 100%; box-sizing: border-box; font: inherit; padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; }
+    button { margin-top: 14px; font: inherit; padding: 6px 14px; border: 0; border-radius: 6px; background: #111; color: #fff; }
+    .ref { font-size: 20px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <!-- data-when: shown only while the call is running, done, or failed. -->
+  <h1 data-when="running">Booking your call back…</h1>
+  <h1 data-when="done">Your call back is booked</h1>
+  <h1 data-when="error">That didn't go through. Tell the agent, or try again.</h1>
+  <p data-when="done">Reference <span class="ref" data-field="ref"></span></p>
+  <!-- data-field: a value from the tool's arguments or its `show`. A form sent goes back to the agent as the user's turn. -->
+  <form>
+    <label>Name <input name="name" data-field="name"></label>
+    <label>Phone <input name="phone" data-field="phone" inputmode="tel"></label>
+    <button>Correct these</button>
+  </form>
+</body>
+</html>
