@@ -1,6 +1,6 @@
-import { defineAgent } from "@voice-agent/sdk";
+import { defineAgent } from "polka-cli";
 
-// Your voice agent. `voiceagent deploy` builds it into a deployment; a push does the same in CI.
+// Your dot. `polka deploy` builds it into a deployment; a push does the same in CI.
 export default defineAgent({
   name: "Starter",
   params: {
@@ -16,7 +16,7 @@ export default defineAgent({
   // Production's calls, judged against what should be true of every one (a "score" record each).
   scoring: { criteria: ["The agent answers from what it knows and never makes up a fact."], sample: 1 },
   // Where its events go is per environment, not here:
-  //   voiceagent vars set WEBHOOK_URL https://staging.your.app/voice-events
-  //   openssl rand -hex 32 | voiceagent vars set WEBHOOK_SECRET
+  //   polka vars set WEBHOOK_URL https://staging.your.app/voice-events
+  //   openssl rand -hex 32 | polka vars set WEBHOOK_SECRET
   // and the same with --env production (a live key) for your production server.
 });

@@ -1,7 +1,7 @@
-import { defineTools } from "@voice-agent/sdk";
+import { defineTools } from "polka-cli";
 
 // What the agent can do during a call: your own code, run by the platform in an isolate of its own.
-// `env` is the environment's variables (`voiceagent vars set NAME value`): test's in test, production's in production.
+// `env` is the environment's variables (`polka vars set NAME value`): test's in test, production's in production.
 export default defineTools({
   opening_hours: {
     description: "Today's opening hours. Call it when the user asks when we are open.",

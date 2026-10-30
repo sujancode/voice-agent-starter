@@ -1,7 +1,7 @@
 # Every push deploys to test. Give it a test key (va_test_…): it can never change production.
-# Production gets a deployment that passed test: `voiceagent promote <version>` with a live key,
+# Production gets a deployment that passed test: `polka promote <version>` with a live key,
 # or Promote in the dashboard.
-name: Deploy the voice agent
+name: Deploy the dot
 on: push
 jobs:
   deploy:
@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 22
       - run: npm install
-      - run: npx voiceagent deploy
+      - run: npx polka deploy
         env:
-          VOICEAGENT_KEY: ${{ secrets.VOICEAGENT_KEY }}
-          VOICEAGENT_API: ${{ vars.VOICEAGENT_API }}
+          POLKA_KEY: ${{ secrets.POLKA_KEY }}
+          POLKA_API: ${{ vars.POLKA_API }}
